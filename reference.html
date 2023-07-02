@@ -1,0 +1,79 @@
+<form id="referenceForm" id = "comp" > 
+    <input type="text" placeholder="Your Name" id = 'name' required>
+    <input type="email" placeholder="Your Email" id = 'email 'required>
+    <input type="text" id = "r" hidden>
+    <button type="submit" class = 'r'>Submit Compaint</button>
+  </form>
+    <p id = "rf2" style="text-align: center;">
+
+  </p>
+  <p id = "rf" style="text-align: center;">
+
+  </p>
+
+  <script>
+  document.querySelector('.r').addEventListener('click',(e)=>{
+      e.preventDefault()
+   let ref = document.getElementById('r').value;
+  let nameo = document.getElementById('name').value;
+  
+    var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var referenceLength = 6;
+    var reference = "(W)";
+    let rf = document.getElementById('rf');
+    let rf2 = document.getElementById('rf2');
+ 
+  
+    for (var i = 0; i < referenceLength; i++) {
+      var randomIndex = Math.floor(Math.random() * characters.length);
+      reference += characters.charAt(randomIndex);
+    }
+    ref = reference
+    console.log(ref);
+    
+      const currentTime = new Date();
+            const currentHour = currentTime.getHours();
+
+            let greeting;
+
+            if (currentHour >= 5 && currentHour < 12) {
+                greeting = 'Good Morning';
+            } else if (currentHour >= 12 && currentHour < 18) {
+                greeting = 'Good Afternoon';
+            } else {
+                greeting = 'Good Evening';
+            }
+            console.log(greeting)
+            rf.innerText = 'Your Reference Number is: ' +  ref;
+            rf2.innerText = greeting + ' ' +nameo + ' ,we have recieved your complain and we will respond and quickly as possible'; 
+             document.getElementById('r').value = '';
+            document.getElementById('name').value = '';
+
+  })
+   
+
+
+  
+
+  
+  </script>
+  <style>
+  /* Add some basic styling to the form for better presentation */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  input[type="text"],
+  input[type="email"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 250px;
+  }
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+  }
+</style>
